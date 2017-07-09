@@ -1,0 +1,3 @@
+[submodule "gml"]
+	path = gml
+	url = git@git:gml
