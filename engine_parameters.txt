@@ -1,0 +1,17 @@
+Crank frequency: 600 - 6000 loops/minute
+                 10 - 100 Hz
+Sparc frequency: 20 - 200 Hz
+Reference points: 18 Hz
+                  22 Hz
+                  27 Hz
+                  33 Hz
+                  39 Hz
+                  47 Hz
+                  56 Hz
+                  68 Hz
+                  82 Hz
+                  100 Hz
+                  120 Hz
+                  150 Hz
+                  180 Hz
+                  220 Hz
