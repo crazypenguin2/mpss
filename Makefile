@@ -25,7 +25,7 @@ LTO="-flto=2 -ffat-lto-objects -flto-partition=1to1"
 
 #CFLAGS=-pipe -mcpu=cortex-m3 -mthumb -O2 -Wall -Werror -D$(FAMILY) -D$(SPL) -ffunction-sections -fdata-sections
 CFLAGS=-pipe -mcpu=cortex-m3 -mthumb -O2 -ggdb -Wall -D$(FAMILY) -D$(SPL) -ffunction-sections -fdata-sections
-CXXFLAGS=$(CFLAGS) -std=c++14 -fno-exceptions -fno-rtti -fno-unwind-tables
+CXXFLAGS=$(CFLAGS) -std=c++1z -fno-exceptions -fno-rtti -fno-unwind-tables
 LDFLAGS=$(CXXFLAGS) -T$(LD_SCRIPT) -nostartfiles -nodefaultlibs -Xlinker --gc-sections
 
 STM32F10x_INC_PATH=spl/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x
