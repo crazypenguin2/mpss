@@ -16,11 +16,23 @@ public:
     }
 };
 
+template <typename N = none>
+struct uint16_t_to_ratio : N
+{
+  void handler(uint16_t value) 
+  {
+    static_cast<N*>(this)->handler(ratio{value, 4095});
+  }
+};
+
+template <>
+struct uint16_t_to_ratio<none> {};
+
 uint8_t frequencies[] = {18, 22, 27, 33, 39, 47, 56, 68, 82, 100, 120, 150, 180, 220};
 
 int main()
 {
-    clock rcc_instance;
+/*    clock rcc_instance;
     //timer<tim3> timer_instance{200000};
     timer<tim2> timer_instance2(18);
     //timer<tim3>::oc<ch1> t3oc1({1 , 2});
@@ -37,10 +49,19 @@ int main()
         for(uint32_t j = 0; j < SystemCoreClock; ++j)
             asm volatile( "nop" );
         timer_instance2.set_frequency(frequencies[i]);
-    }
-    while(1)
-    {
-    }
+    }*/
+
+/*  using T1 = timer<tim2>::oc<ch1>;
+  using T0 = timer<tim3>::ic<ch1>;
+  auto equivalent_pulse = make_pipe(T0{}, T1{});
+*/
+  using T2 = timer<tim1>::oc<ch1_t>;
+  using ADC0 = adc<>;
+  auto voltage_driven_pwm = make_pipe(ADC0{}, uint16_t_to_ratio<>{}, T2{});
+  
+  while(1)
+  {
+  }
 
   return 0;
 }
